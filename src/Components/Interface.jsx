@@ -19,7 +19,7 @@ const Interface = () => {
     try {
       const { data } = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${City}&appid=${
-          import.meta.env.VITE_Weather_Api
+          import.meta.env.VITE_WEATHER_API
         }&units=metric`
       )
       sethumidity(data.main.humidity)
