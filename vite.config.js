@@ -8,5 +8,16 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base:"/weatherapp/",
+  base: "/weatherapp/",
+  define: {
+    // This ensures the environment variable is properly inserted
+    // without any additional quotes
+    'import.meta.env.VITE_WEATHER_API': JSON.stringify(
+      process.env.VITE_WEATHER_API?.replace(/^["'](.*)["']$/, '$1')
+    ),
+    // If you're using the capitalized version in your code
+    'import.meta.env.VITE_Weather_Api': JSON.stringify(
+      process.env.VITE_WEATHER_API?.replace(/^["'](.*)["']$/, '$1')
+    )
+  }
 })
